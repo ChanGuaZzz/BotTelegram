@@ -1,0 +1,16 @@
+{
+  "name": "bottelegram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "LyricsBot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.28.0",
+    "dotenv": "^16.4.2",
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
