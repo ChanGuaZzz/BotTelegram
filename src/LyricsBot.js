@@ -1,3 +1,9 @@
+/**
+ * The above JavaScript code defines a Telegram bot called LyricsRythmBot that can provide lyrics of
+ * songs and search for artists based on genres using the Spotify and Genius APIs.
+ * @returns The code provided sets up a Telegram bot called LyricsRythmBot that can assist users with
+ * lyrics of songs and genre recommendations. Here's a summary of what is being returned by the code:
+ */
 require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
