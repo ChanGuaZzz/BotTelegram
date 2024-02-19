@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: LyricsBot.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: LyricsBot.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Configura las variables de entorno y requiere los módulos necesarios.
  * @module Configuración
  */
@@ -28,7 +56,7 @@ const ClientSecret = process.env.ClientSecret;
  * Obtiene el token de acceso para la API de Spotify utilizando el flujo de credenciales de cliente.
  * @async
  * @function
- * @returns {Promise<string>} Token de acceso para la API de Spotify.
+ * @returns {Promise&lt;string>} Token de acceso para la API de Spotify.
  */
 async function getAccessToken() {
   const response = await axios.post('https://accounts.spotify.com/api/token', null, {
@@ -52,7 +80,7 @@ async function getAccessToken() {
  * @async
  * @function
  * @param {string} genre - Género musical para buscar artistas.
- * @returns {Promise<Array>} Lista de artistas que coinciden con el género.
+ * @returns {Promise&lt;Array>} Lista de artistas que coinciden con el género.
  */
 async function searchArtistsByGenre(genre) {
   const accessToken = await getAccessToken();
@@ -75,7 +103,7 @@ async function searchArtistsByGenre(genre) {
  * @async
  * @function
  * @param {string} SongArtist - Nombre de la canción y el artista.
- * @returns {Promise<?string>} URL de la letra de la canción.
+ * @returns {Promise&lt;?string>} URL de la letra de la canción.
  */
 async function getLyrics(SongArtist) {
   try {
@@ -104,11 +132,11 @@ try {
   var imagenes = [
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDg3Nzc1OTBwZXI2N2d1b2M2eGgyNTFvcGkxdW85OWs2bHZoN2N6ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tqfS3mgQU28ko/giphy.gif",
     "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDA0dDNia3JlenN1Nm9kbWM0bDc2YzN3d3MwYzhvM3d6MmZ2M2h6cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4oMoIbIQrvCjm/giphy.gif",
-    "https://media.giphy.com/media/cgW5iwX0e37qg/giphy.gif?cid=790b7611004t3bkrezsu6odmc4l76c3wws0c8o3wz2fv3hzp&ep=v1_gifs_search&rid=giphy.gif",
-    "https://media.giphy.com/media/7UzKL9kj5vnlm/giphy.gif?cid=ecf05e47k3iy2utz8ml2256yv0y0w1dgv0nhcrm36m3sjns9&ep=v1_gifs_search&rid=giphy.gif",
-    "https://cdn.discordapp.com/attachments/1199793469305147396/1206980529769938965/IMG_3102.jpg?ex=65ddfb36&is=65cb8636&hm=f91447cb5054edb1552ab8653d183a1773d1e6d5e22b2526ba3106a17b24f30d&",
-    "https://media.giphy.com/media/blSTtZehjAZ8I/giphy.gif?cid=790b76112p9ruw6ulws5l3k6itmp3rid6ehjmyg6d9rz75cr&ep=v1_gifs_search&rid=giphy.gif&ct=g",
-    "https://media.giphy.com/media/dM2xuxnJCg4H6/giphy.gif?cid=790b76112p9ruw6ulws5l3k6itmp3rid6ehjmyg6d9rz75cr&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+    "https://media.giphy.com/media/cgW5iwX0e37qg/giphy.gif?cid=790b7611004t3bkrezsu6odmc4l76c3wws0c8o3wz2fv3hzp&amp;ep=v1_gifs_search&amp;rid=giphy.gif",
+    "https://media.giphy.com/media/7UzKL9kj5vnlm/giphy.gif?cid=ecf05e47k3iy2utz8ml2256yv0y0w1dgv0nhcrm36m3sjns9&amp;ep=v1_gifs_search&amp;rid=giphy.gif",
+    "https://cdn.discordapp.com/attachments/1199793469305147396/1206980529769938965/IMG_3102.jpg?ex=65ddfb36&amp;is=65cb8636&amp;hm=f91447cb5054edb1552ab8653d183a1773d1e6d5e22b2526ba3106a17b24f30d&amp;",
+    "https://media.giphy.com/media/blSTtZehjAZ8I/giphy.gif?cid=790b76112p9ruw6ulws5l3k6itmp3rid6ehjmyg6d9rz75cr&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g",
+    "https://media.giphy.com/media/dM2xuxnJCg4H6/giphy.gif?cid=790b76112p9ruw6ulws5l3k6itmp3rid6ehjmyg6d9rz75cr&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g",
   ];
 
   // Token del bot para la comunicación
@@ -212,7 +240,7 @@ const bot = new TelegramBot(token, { polling: true });
     const chatId = msg.chat.id;
     const message = msg.text;
 
-    if (waitingForLyrics && !message.startsWith("/")) {
+    if (waitingForLyrics &amp;&amp; !message.startsWith("/")) {
       // Lógica para manejar el nombre de la canción aquí
       bot.sendMessage(chatId, `Obteniendo la letra para "${message}" 🔎`);
 
@@ -229,7 +257,7 @@ const bot = new TelegramBot(token, { polling: true });
         });
 
       waitingForLyrics = false;
-    } else if (waitingForArtistas && !message.startsWith("/")) {
+    } else if (waitingForArtistas &amp;&amp; !message.startsWith("/")) {
       // Lógica para buscar artistas aquí
       bot.sendMessage(chatId, `Buscando Artistas de "${message}" 🔎`).then(() => {
         // Buscar artistas y mostrarlos
@@ -264,3 +292,26 @@ const bot = new TelegramBot(token, { polling: true });
 } catch (error) {
   console.error("Error:", error);
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Configuraci%25C3%25B3n.html">Configuración</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Feb 19 2024 15:19:22 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
